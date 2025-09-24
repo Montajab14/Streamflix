@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>StreamFlix — Structure HTML</title>
+  <meta name="description" content="Structure HTML de la plateforme StreamFlix — base sémantique, accessibilité ARIA, formulaires HTML5, grilles de films.">
+  <meta name="author" content="Équipe StreamFlix">
+  <meta name="robots" content="index,follow">
+  
+  <link rel="canonical" href="https://example.com/">
+</head>
+<body>
+  
+  <a href="#main" class="skip-link">Aller au contenu</a>
+
+  <header role="banner" aria-label="En-tête du site">
+    <div class="header-inner">
+      
+      <a href="Streamflix/index.html" class="logo" aria-label="StreamFlix — page d'accueil">
+        <img src="images/logo.png" alt="StreamFlix" width="120" height="120">
+      </a>
+
+      
+      <nav role="navigation" aria-label="Navigation principale">
+        <ul class="main-nav" role="menubar" aria-label="Menu principal">
+          <li role="none"><a role="menuitem" href="/" aria-current="page">Accueil</a></li>
+          <li role="none"><a role="menuitem" href="">Films</a></li>
+          <li role="none"><a role="menuitem" href="">Séries</a></li>
+          <li role="none"><a role="menuitem" href="">Ma Liste</a></li>
+        </ul>
+      </nav>
+
+     
+      <div class="header-user" aria-label="Zone utilisateur">
+        
+        <form role="search" aria-label="Recherche de films et séries" method="get" action="/search">
+          <label for="search-query">Rechercher</label>
+          <input id="search-query" name="q" type="search" placeholder="Titre, acteur, genre..." required aria-required="true">
+          <button type="submit">Rechercher</button>
+        </form>
+
+        
+        <details class="profile-menu" aria-label="Menu profil">
+          <summary aria-haspopup="true">Mon profil</summary>
+          <ul>
+            <li><a href="">Voir le profil</a></li>
+            <li><a href="">Ma Liste</a></li>
+            <li><a href="">Se déconnecter</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" role="main" tabindex="-1">
+    
+    <section id="hero" class="hero" role="region" aria-labelledby="hero-title" aria-describedby="hero-desc">
+      
+      <figure class="hero-figure" aria-hidden="false">
+        <img src="images/films/inception.jpg"
+             alt="Affiche du film Inception (2010) : silhouette centrale dans un paysage onirique et urbaine pliée"
+             width="1200" height="600">
+        
+        <div class="hero-overlay" aria-hidden="true"></div>
+      </figure>
+
+      
+      <div class="hero-content">
+        <h1 id="hero-title">Inception <span class="year">(<time datetime="2010">2010</time>)</span></h1>
+        <p id="hero-desc">
+          Un voleur qui s'infiltre dans les rêves des autres pour voler leurs secrets découvre qu'il doit réaliser l'impossible : <em>planter une idée</em> plutôt que de la voler.
+        </p>
+
+        <ul class="hero-meta" aria-hidden="false">
+          <li>Durée : <time datetime="PT2H28M">2h28</time></li>
+          <li>Note : <span aria-label="Note 4.5 sur 5">4.5/5</span>
+            <meter min="0" max="5" value="4.5" low="2" high="4" optimum="5">4.5/5</meter>
+          </li>
+          <li>Genres : <span>Sci-Fi, Thriller</span></li>
+        </ul>
+
+       
+        <div class="hero-actions" role="group" aria-label="Actions sur le film Inception">
+          <button type="button" aria-label="Lire Inception">Lecture</button>
+          <button type="button" aria-expanded="false" aria-controls="inception-more">Plus d'infos</button>
+          <button type="button" aria-pressed="false">Ma Liste</button>
+        </div>
+
+        <div id="inception-more" hidden>
+          <p>Réalisateur : Christopher Nolan — Casting : Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page...</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="tendances" aria-labelledby="tendances-title" role="region">
+      <h2 id="tendances-title">Tendances actuelles</h2>
+      <div class="grid" role="list" aria-label="Tendances actuelles — liste de films populaires">
+        
+        <article role="listitem" aria-labelledby="dk-title" class="film-card">
+          <figure>
+            <img src="images/films/dark-knight.jpg" alt="Affiche de The Dark Knight (2008) — Batman face à Gotham" width="240" height="360">
+            <figcaption id="dk-title"><a href="">The Dark Knight</a> <time datetime="2008">2008</time></figcaption>
+          </figure>
+          <p class="meta">
+            <time datetime="PT2H32M">2h32</time> · Note : <span aria-label="4.8 sur 5">4.8/5</span>
+            <meter min="0" max="5" value="4.8">4.8/5</meter>
+          </p>
+          <p class="genres" aria-label="Genres">Action, Crime, Drama</p>
+        </article>
+
+        
+        <article role="listitem" aria-labelledby="interstellar-title" class="film-card">
+          <figure>
+            <img src="images/films/interstellar.jpg" alt="Affiche de Interstellar (2014) — vaisseau dans l'espace" width="240" height="360">
+            <figcaption id="interstellar-title"><a href="">Interstellar</a> <time datetime="2014">2014</time></figcaption>
+          </figure>
+          <p class="meta">
+            <time datetime="PT2H49M">2h49</time> · Note : <span aria-label="4.7 sur 5">4.7/5</span>
+            <meter min="0" max="5" value="4.7">4.7/5</meter>
+          </p>
+          <p class="genres">Sci-Fi, Drama</p>
+        </article>
+
+       
+        <article role="listitem" aria-labelledby="pulp-title" class="film-card">
+          <figure>
+            <img src="images/films/pulp-fiction.jpg" alt="Affiche de Pulp Fiction (1994) — personnages emblématiques" width="240" height="360">
+            <figcaption id="pulp-title"><a href="">Pulp Fiction</a> <time datetime="1994">1994</time></figcaption>
+          </figure>
+          <p class="meta">
+            <time datetime="PT2H34M">2h34</time> · Note : <span aria-label="4.6 sur 5">4.6/5</span>
+            <meter min="0" max="5" value="4.6">4.6/5</meter>
+          </p>
+          <p class="genres">Crime, Drama</p>
+        </article>
+      </div>
+    </section>
+
+   
+    <section id="recommandes" aria-labelledby="recommandes-title" role="region">
+      <h2 id="recommandes-title">Recommandés pour vous</h2>
+      <div class="grid" role="list" aria-label="Recommandés pour vous">
+        
+        <article role="listitem" aria-labelledby="inception-title" class="film-card">
+          <figure>
+            <img src="images/films/inception.jpg" alt="Affiche de Inception (2010) — architecture qui se plie" width="240" height="360">
+            <figcaption id="inception-title"><a href="">Inception</a> <time datetime="2010">2010</time></figcaption>
+          </figure>
+          <p class="meta">
+            <time datetime="PT2H28M">2h28</time> · Note : <span aria-label="4.5 sur 5">4.5/5</span>
+            <meter min="0" max="5" value="4.5">4.5/5</meter>
+          </p>
+          <p class="genres">Sci-Fi, Thriller</p>
+        </article>
+
+        
+        <article role="listitem" aria-labelledby="matrix-title" class="film-card">
+          <figure>
+            <img src="images/films/matrix.jpg" alt="Affiche de The Matrix (1999) — protagoniste avec lunettes" width="240" height="360">
+            <figcaption id="matrix-title"><a href="">The Matrix</a> <time datetime="1999">1999</time></figcaption>
+          </figure>
+          <p class="meta">
+            <time datetime="PT2H16M">2h16</time> · Note : <span aria-label="4.5 sur 5">4.5/5</span>
+            <meter min="0" max="5" value="4.5">4.5/5</meter>
+          </p>
+          <p class="genres">Action, Sci-Fi</p>
+        </article>
+
+        
+        <article role="listitem" aria-labelledby="forrest-title" class="film-card">
+          <figure>
+            <img src="images/films/forrest-gump.jpg" alt="Affiche de Forrest Gump (1994) — personnage assis sur un banc" width="240" height="360">
+            <figcaption id="forrest-title"><a href="">Forrest Gump</a> <time datetime="1994">1994</time></figcaption>
+          </figure>
+          <p class="meta">
+            <time datetime="PT2H22M">2h22</time> · Note : <span aria-label="4.4 sur 5">4.4/5</span>
+            <meter min="0" max="5" value="4.4">4.4/5</meter>
+          </p>
+          <p class="genres">Drama, Romance</p>
+        </article>
+      </div>
+    </section>
+
+    
+    <section id="nouveautes" role="region" aria-labelledby="nouveautes-title">
+      <h2 id="nouveautes-title">Nouveautés</h2>
+      <div class="grid" role="list" aria-label="Nouveautés">
+        
+        <article role="listitem" aria-labelledby="interstellar2-title" class="film-card">
+          <figure>
+            <img src="images/films/interstellar.jpg" alt="Affiche de Interstellar (2014) — vaisseau dans l'espace" width="240" height="360">
+            <figcaption id="interstellar2-title"><a href="">Interstellar</a> <time datetime="2014">2014</time></figcaption>
+          </figure>
+          <p class="meta">
+            <time datetime="PT2H49M">2h49</time> · Note : <span aria-label="4.7 sur 5">4.7/5</span>
+            <meter min="0" max="5" value="4.7">4.7/5</meter>
+          </p>
+          <p class="genres">Sci-Fi, Drama</p>
+        </article>
+
+        
+        <article role="listitem" aria-labelledby="dk2-title" class="film-card">
+          <figure>
+            <img src="images/films/dark-knight.jpg" alt="Affiche de The Dark Knight (2008) — Batman face à Gotham" width="240" height="360">
+            <figcaption id="dk2-title"><a href="">The Dark Knight</a> <time datetime="2008">2008</time></figcaption>
+          </figure>
+          <p class="meta">
+            <time datetime="PT2H32M">2h32</time> · Note : <span aria-label="4.8 sur 5">4.8/5</span>
+            <meter min="0" max="5" value="4.8">4.8/5</meter>
+          </p>
+          <p class="genres">Action, Crime, Drama</p>
+        </article>
+      </div>
+    </section>
+
+    
+    <section id="inscription" aria-labelledby="inscription-title" role="region">
+      <h2 id="inscription-title">Créer un compte</h2>
+      <form action="/inscription" method="post" aria-label="Formulaire d'inscription" novalidate>
+        <fieldset>
+          <legend>Informations du compte</legend>
+
+          <label for="username">Nom d'utilisateur</label><br>
+          <input id="username" name="username" type="text" required aria-required="true" minlength="3"><br><br>
+
+          <label for="email-signup">Adresse email</label><br>
+          <input id="email-signup" name="email" type="email" required aria-required="true" aria-describedby="email-help"><br>
+          <small id="email-help">Nous utiliserons votre email pour la vérification et la récupération de compte.</small><br><br>
+
+          <label for="password">Mot de passe</label><br>
+          <input id="password" name="password" type="password" required aria-required="true" minlength="8" aria-describedby="pwd-help"><br>
+          <small id="pwd-help">Minimum 8 caractères.</small><br><br>
+
+          <label for="confirm-password">Confirmer le mot de passe</label><br>
+          <input id="confirm-password" name="confirm-password" type="password" required aria-required="true" minlength="8"><br><br>
+
+          <fieldset>
+            <legend>Préférences</legend>
+            <label><input type="checkbox" name="newsletter"> S'abonner à la newsletter</label><br>
+          </fieldset> <br>
+
+          <button type="submit">Créer mon compte</button>
+          <button type="reset">Réinitialiser</button>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+
+  <footer aria-label="Pied de page">
+    <div class="footer-inner">
+      <nav aria-label="Liens utiles">
+        <ul>
+          <li><a href="/aide">Aide</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/mentions-legales">Mentions légales</a></li>
+          <li><a href="/conditions">Conditions d'utilisation</a></li>
+        </ul>
+      </nav>
+
+      <div class="socials" aria-label="Réseaux sociaux">
+        <a href="" aria-label="Instagram">Instagram</a>
+        <a href="" aria-label="Twitter">Twitter</a>
+        <a href="" aria-label="Facebook">Facebook</a>
+      </div>
+
+      <p>&copy; <time datetime="2025">2025</time> StreamFlix — Tous droits réservés.</p>
+    </div>
+  </footer>
+</body>
+</html>
