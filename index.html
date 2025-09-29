@@ -7,8 +7,9 @@
   <meta name="description" content="Structure HTML de la plateforme StreamFlix — base sémantique, accessibilité ARIA, formulaires HTML5, grilles de films.">
   <meta name="author" content="Équipe StreamFlix">
   <meta name="robots" content="index,follow">
-  
+
   <link rel="canonical" href="https://example.com/">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   
@@ -16,12 +17,10 @@
 
   <header role="banner" aria-label="En-tête du site">
     <div class="header-inner">
-      
       <a href="Streamflix/index.html" class="logo" aria-label="StreamFlix — page d'accueil">
         <img src="images/logo.png" alt="StreamFlix" width="120" height="120">
       </a>
 
-      
       <nav role="navigation" aria-label="Navigation principale">
         <ul class="main-nav" role="menubar" aria-label="Menu principal">
           <li role="none"><a role="menuitem" href="/" aria-current="page">Accueil</a></li>
@@ -31,16 +30,13 @@
         </ul>
       </nav>
 
-     
       <div class="header-user" aria-label="Zone utilisateur">
-        
         <form role="search" aria-label="Recherche de films et séries" method="get" action="/search">
           <label for="search-query">Rechercher</label>
           <input id="search-query" name="q" type="search" placeholder="Titre, acteur, genre..." required aria-required="true">
           <button type="submit">Rechercher</button>
         </form>
 
-        
         <details class="profile-menu" aria-label="Menu profil">
           <summary aria-haspopup="true">Mon profil</summary>
           <ul>
@@ -54,25 +50,21 @@
   </header>
 
   <main id="main" role="main" tabindex="-1">
-    
     <section id="hero" class="hero" role="region" aria-labelledby="hero-title" aria-describedby="hero-desc">
-      
-      <figure class="hero-figure" aria-hidden="false">
+      <figure class="hero-figure">
         <img src="images/films/inception.jpg"
-             alt="Affiche du film Inception (2010) : silhouette centrale dans un paysage onirique et urbaine pliée"
+             alt="Affiche du film Inception (2010) : silhouette centrale dans un paysage onirique et urbain plié"
              width="1200" height="600">
-        
         <div class="hero-overlay" aria-hidden="true"></div>
       </figure>
 
-      
       <div class="hero-content">
         <h1 id="hero-title">Inception <span class="year">(<time datetime="2010">2010</time>)</span></h1>
         <p id="hero-desc">
           Un voleur qui s'infiltre dans les rêves des autres pour voler leurs secrets découvre qu'il doit réaliser l'impossible : <em>planter une idée</em> plutôt que de la voler.
         </p>
 
-        <ul class="hero-meta" aria-hidden="false">
+        <ul class="hero-meta">
           <li>Durée : <time datetime="PT2H28M">2h28</time></li>
           <li>Note : <span aria-label="Note 4.5 sur 5">4.5/5</span>
             <meter min="0" max="5" value="4.5" low="2" high="4" optimum="5">4.5/5</meter>
@@ -80,7 +72,6 @@
           <li>Genres : <span>Sci-Fi, Thriller</span></li>
         </ul>
 
-       
         <div class="hero-actions" role="group" aria-label="Actions sur le film Inception">
           <button type="button" aria-label="Lire Inception">Lecture</button>
           <button type="button" aria-expanded="false" aria-controls="inception-more">Plus d'infos</button>
@@ -236,10 +227,10 @@
           <label for="confirm-password">Confirmer le mot de passe</label><br>
           <input id="confirm-password" name="confirm-password" type="password" required aria-required="true" minlength="8"><br><br>
 
-          <fieldset>
+          <div class="preferences">
             <legend>Préférences</legend>
             <label><input type="checkbox" name="newsletter"> S'abonner à la newsletter</label><br>
-          </fieldset> <br>
+          </div><br>
 
           <button type="submit">Créer mon compte</button>
           <button type="reset">Réinitialiser</button>
@@ -248,8 +239,7 @@
     </section>
   </main>
 
-
-  <footer aria-label="Pied de page">
+  <footer role="contentinfo" aria-label="Pied de page">
     <div class="footer-inner">
       <nav aria-label="Liens utiles">
         <ul>
