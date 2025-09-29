@@ -16,9 +16,7 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { cursor: pointer; border: none; font: inherit; }
 
-/* ------------------------------
-   HEADER
-   ------------------------------ */
+
 header { 
   position: sticky; 
   top: 0; 
@@ -28,7 +26,7 @@ header {
 
 .header-inner {
   display: flex;
-  justify-content: space-between;   /* logo/nav à gauche, user à droite */
+  justify-content: space-between;   
   align-items: center;
   padding: 0.75rem 2rem;
   max-width: 1400px;
@@ -36,12 +34,11 @@ header {
   gap: 2rem;
 }
 
-/* Logo à gauche */
+
 .logo {
   flex-shrink: 0;
 }
 
-/* Menu principal */
 .main-nav {
   display: flex;
   gap: 1.5rem;
@@ -57,7 +54,6 @@ header {
   color: var(--text);
 }
 
-/* Zone utilisateur à droite */
 .header-user {
   display: flex;
   align-items: center;
@@ -70,9 +66,7 @@ header {
 .search-form button { background: var(--primary); color: var(--text); padding: .5rem 1rem; border-radius: var(--radius); transition: background .3s; }
 .search-form button:hover { background: #b0060f; }
 
-/* ------------------------------
-   HERO
-   ------------------------------ */
+
 .hero { position: relative; background: url('inception.jpg') no-repeat center/cover; color: #fff; padding: 6rem 2rem; }
 .hero::before { content:""; position:absolute; inset:0; background: linear-gradient(to top,rgba(0,0,0,.7),rgba(0,0,0,.3)); }
 .hero-content { position: relative; max-width: 600px; }
@@ -81,9 +75,6 @@ header {
 .hero .actions button { margin-right: 1rem; padding: .75rem 1.5rem; border-radius: var(--radius); background: var(--primary); color: #fff; font-weight: bold; transition: background .3s; }
 .hero .actions button:hover { background: #b0060f; }
 
-/* ------------------------------
-   FILMS & GRILLES
-   ------------------------------ */
 section { padding: 2rem; }
 section h2 { margin-bottom: 1rem; font-size: 1.5rem; }
 .film-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(150px,1fr)); gap: 1rem; }
