@@ -1,0 +1,94 @@
+.hero {
+  position: relative;
+  background: url('../images/films/inception.jpg') center/cover no-repeat;
+  color: $text-light;
+  padding: 8rem 2rem;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  // Overlay sombre
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 600px;
+    z-index: 1; // au-dessus de l'overlay
+    margin: 0 auto;
+
+    h1 {
+      font-family: $font-primary;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      margin-bottom: 1rem;
+
+      span {
+        color: $text-muted;
+        font-size: 1.2rem;
+      }
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      font-size: $font-size-base;
+    }
+
+    .actions {
+      @include flex-center; 
+      gap: 0.5rem;
+      flex-wrap: wrap;
+
+      button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        transition: background 0.3s;
+
+        &.btn-danger {
+          background-color: $primary-red;
+          color: $text-light;
+
+          &:hover {
+            background-color: darken($primary-red, 10%);
+          }
+        }
+
+        &.btn-outline-light {
+          border: 1px solid $text-light;
+          color: $text-light;
+
+          &:hover {
+            background-color: rgba(255,255,255,0.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 10rem 3rem;
+
+    .hero-content {
+      max-width: 700px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    padding: 12rem 4rem;
+
+    .hero-content {
+      max-width: 800px;
+    }
+  }
+}

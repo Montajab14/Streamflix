@@ -1,0 +1,152 @@
+:root {
+  --primary: #e50914;
+  --secondary: #221f1f;
+  --text: #ffffff;
+  --text-muted: #b3b3b3;
+  --surface: #141414;
+  --radius: 12px;
+  --spacing: 1rem;
+  --font-base: 'Arial', sans-serif;
+  --font-title: 'Helvetica Neue', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-base); background: var(--surface); color: var(--text); line-height: 1.5; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; font: inherit; }
+
+
+header { 
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
+  background: rgba(20,20,20,0.9); 
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;   
+  align-items: center;
+  padding: 0.75rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+
+.logo {
+  flex-shrink: 0;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: 2rem;
+}
+
+.main-nav a {
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
+.main-nav a:hover,
+.main-nav a:focus {
+  color: var(--text);
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.search-form { display: flex; gap: .5rem; }
+.search-form input { padding: .5rem; border-radius: var(--radius); border: none; }
+.search-form button { background: var(--primary); color: var(--text); padding: .5rem 1rem; border-radius: var(--radius); transition: background .3s; }
+.search-form button:hover { background: #b0060f; }
+
+
+.hero { position: relative; background: url('inception.jpg') no-repeat center/cover; color: #fff; padding: 6rem 2rem; }
+.hero::before { content:""; position:absolute; inset:0; background: linear-gradient(to top,rgba(0,0,0,.7),rgba(0,0,0,.3)); }
+.hero-content { position: relative; max-width: 600px; }
+.hero h1 { font-size: 2.5rem; font-family: var(--font-title); margin-bottom: 1rem; }
+.hero p { margin-bottom: 1.5rem; }
+.hero .actions button { margin-right: 1rem; padding: .75rem 1.5rem; border-radius: var(--radius); background: var(--primary); color: #fff; font-weight: bold; transition: background .3s; }
+.hero .actions button:hover { background: #b0060f; }
+
+section { padding: 2rem; }
+section h2 { margin-bottom: 1rem; font-size: 1.5rem; }
+.film-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(150px,1fr)); gap: 1rem; }
+.film-card { background: #222; border-radius: var(--radius); padding: .5rem; transition: transform .3s, box-shadow .3s; }
+.film-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,.5); }
+.film-card h3 { font-size: 1rem; margin: .5rem 0; }
+.film-card p { font-size: .85rem; color: var(--text-muted); }
+
+
+footer { background: #000; padding: 2rem; text-align: center; color: var(--text-muted); }
+footer nav ul { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; }
+footer a:hover { color: var(--text); }
+
+
+@media (min-width: 480px) {
+  .hero h1 { font-size: 3rem; }
+}
+@media (min-width: 768px) {
+  .main-nav { gap: 2rem; }
+  .hero { padding: 8rem 3rem; }
+}
+@media (min-width: 1024px) {
+  .hero h1 { font-size: 3.5rem; }
+}
+@media (min-width: 1280px) {
+  .film-grid { grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); }
+}
+@media (min-width: 1536px) {
+  .hero-content { max-width: 800px; }
+}
+
+/* ------------------------------
+   Défi 1 - Grille masonry
+   ------------------------------ */
+.masonry { column-count: 3; column-gap: 1rem; }
+.masonry .film-card { display: inline-block; width: 100%; margin-bottom: 1rem; }
+
+/* ------------------------------
+   Défi 2 - Système de thèmes avancé
+   ------------------------------ */
+.theme-dark { --surface:#141414; --text:#fff; --text-muted:#aaa; --primary:#e50914; }
+.theme-light { --surface:#f9f9f9; --text:#111; --text-muted:#444; --primary:#0066ff; }
+.theme-cinema { --surface:#2b1d0e; --text:#f8f3e6; --text-muted:#c2b9a1; --primary:#d4a017; }
+body { transition: background .4s, color .4s; }
+
+/* ------------------------------
+   Défi 3 - Navigation adaptive
+   ------------------------------ */
+header.shrink { padding: .5rem 1rem; background: rgba(20,20,20,0.95); }
+header nav a.active { border-bottom: 2px solid var(--primary); }
+
+/* ------------------------------
+   Défi 4 - Animations CSS avancées
+   ------------------------------ */
+.hero { perspective: 1000px; }
+.hero-content { transform: translateZ(30px); transition: transform .6s; }
+.hero:hover .hero-content { transform: translateZ(60px); }
+
+.film-card { transform-style: preserve-3d; }
+.film-card:hover { transform: rotateY(10deg); }
+
+.skeleton { background: linear-gradient(90deg,#333 25%,#444 37%,#333 63%); background-size: 400% 100%; animation: shine 1.4s ease infinite; }
+@keyframes shine { 0%{background-position:200% 0;} 100%{background-position:-200% 0;} }
+
+.film-card { opacity: 0; animation: fadeIn .6s forwards; }
+.film-card:nth-child(1){animation-delay:.1s}
+.film-card:nth-child(2){animation-delay:.2s}
+.film-card:nth-child(3){animation-delay:.3s}
+@keyframes fadeIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+/* ------------------------------
+   Défi 5 - Responsive design expert
+   ------------------------------ */
+h1,h2,h3 { font-size: clamp(1rem, 2vw, 2.5rem); }
+img { max-width: 100%; height: auto; }

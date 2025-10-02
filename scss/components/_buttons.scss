@@ -1,0 +1,15 @@
+.btn-custom {
+  @include button-style($primary-red, $text-light);
+}
+
+.btn-outline-custom {
+  border: 2px solid $primary-red;
+  color: $primary-red;
+  background: transparent;
+  padding: 10px 20px;
+  border-radius: 20px;
+  &:hover {
+    background: $primary-red;
+    color: $text-light;
+  }
+}

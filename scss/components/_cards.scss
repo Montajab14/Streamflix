@@ -1,0 +1,19 @@
+.film-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+}
+
+.card-title {
+  @include text-truncate;
+  font-size: $font-size-base;
+  font-weight: bold;
+}
+
+.card-text {
+  color: $text-muted;
+}

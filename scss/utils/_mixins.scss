@@ -1,0 +1,16 @@
+@mixin text-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin button-style($bg, $color) {
+  background-color: $bg;
+  color: $color;
+  border-radius: 20px;
+  padding: 10px 20px;
+  transition: 0.3s;
+  &:hover {
+    opacity: 0.85;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "streamflix",
+  "version": "1.0.0",
+  "description": "Migration de StreamFlix vers Bootstrap 5 et SASS",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass --watch scss/style.scss:css/style.css"
+  },
+  "author": "TonNom",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.72.1"
+  }
+}

@@ -1,0 +1,16 @@
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background 0.3s;
+  &.shrink {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
+
+.navbar-nav .nav-link {
+  color: $text-light !important;
+  &:hover {
+    color: $primary-red !important;
+  }
+}
