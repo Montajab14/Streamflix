@@ -1,0 +1,155 @@
+.quiz-container {
+  padding: 3rem 1rem;
+  color: $text-light;
+
+  h1, h2 {
+    font-family: $font-primary;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: $primary-red;
+  }
+
+  h2 {
+    font-size: $font-size-large;
+    color: $text-light;
+  }
+
+  .quiz-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    p {
+      color: $text-muted;
+      font-size: $font-size-base;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-start {
+      @include button-style($primary-red, $text-light);
+      font-size: $font-size-base;
+    }
+  }
+
+  .quiz-question {
+    margin-bottom: 2rem;
+    text-align: center;
+
+    .question-text {
+      font-size: $font-size-base;
+      margin-bottom: 1.5rem;
+    }
+
+    .options {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+      .option-btn {
+        @include button-style($secondary-gray, $text-light);
+        border: 2px solid $primary-red;
+        &:hover {
+          background: $primary-red;
+          color: $text-light;
+        }
+
+        &.selected {
+          background: $primary-red;
+          color: $text-light;
+        }
+      }
+    }
+
+    .progress {
+      height: 1rem;
+      background-color: darken($primary-dark, 10%);
+      border-radius: 10px;
+      margin-top: 1.5rem;
+
+      .progress-bar {
+        background-color: $primary-red;
+        transition: width 0.3s ease;
+      }
+    }
+
+    .btn-next {
+      @include button-style($primary-red, $text-light);
+      margin-top: 1.5rem;
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .quiz-results {
+    text-align: center;
+
+    .score {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: $primary-red;
+    }
+
+    .message {
+      font-size: $font-size-base;
+      margin-bottom: 2rem;
+      color: $text-light;
+    }
+
+    .answers-list {
+      margin-bottom: 2rem;
+
+      .answer-item {
+        text-align: left;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        background-color: darken($primary-dark, 5%);
+
+        .question {
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+
+        .user-answer {
+          &.correct {
+            color: green;
+            font-weight: bold;
+          }
+          &.wrong {
+            color: red;
+            font-weight: bold;
+          }
+        }
+
+        .correct-answer {
+          color: $primary-red;
+          font-style: italic;
+        }
+      }
+    }
+
+    .btn-restart,
+    .btn-home {
+      @include button-style($primary-red, $text-light);
+      margin: 0.5rem;
+    }
+  }
+}
+
+// Pour la version mobile
+@media (max-width: 767px) {
+  .quiz-container {
+    padding: 2rem 1rem;
+
+    .options {
+      grid-template-columns: 1fr;
+    }
+  }
+}
